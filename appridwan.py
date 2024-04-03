@@ -22,11 +22,11 @@ if __name__=="__main__":
       
         if (data[i][1]=="ST"):
           val=iec61850.MmsValue_getBitStringAsIntegerBigEndian(readobj[0])
-        else:
+        elif (data[i][1]=="MX"):
           val=iec61850.MmsValue_toFloat(readobj[0])
         print(str(daread+" | "+str(val)))
       time.sleep(5)
-      print("=========================================")
+      os.system('clear')
     iec61850.IedConnection_close(con)
   iec61850.IedConnection_destroy(con)
     
