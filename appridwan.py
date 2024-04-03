@@ -25,7 +25,8 @@ if __name__=="__main__":
         else:
           val=iec61850.MmsValue_toFloat(readobj[0])
         print(str(daread+" | "+str(val)))
-    time.sleep(5)
+      time.sleep(5)
+      print("=========================================")
     iec61850.IedConnection_close(con)
   iec61850.IedConnection_destroy(con)
     
