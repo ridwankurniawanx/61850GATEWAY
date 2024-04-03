@@ -15,15 +15,15 @@ if __name__=="__main__":
 
   if (error == iec61850.IED_ERROR_OK):
     for i in range(len(data)):
-      daread = data[2][0]
-      dafc = eval(str("iec61850.IEC61850_FC_"+str(data[2][1])))
+      daread = data[i][0]
+      dafc = eval(str("iec61850.IEC61850_FC_"+str(data[i][1])))
       readobj=iec61850.IedConnection_readObject(con,daread,dafc)
-      print(str(daread+" "+str(readobj)))
+      
       if (data[i][1]=="ST"):
         val=iec61850.MmsValue_getBitStringAsIntegerBigEndian(readobj[0])
       else:
         val=iec61850.MmsValue_toFloat(readobj[0])
-      print(val)
+      print(str(daread+" | "+str(val)))
     iec61850.IedConnection_close(con)
   iec61850.IedConnection_destroy(con)
     
