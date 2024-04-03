@@ -2,7 +2,7 @@ import os,sys
 import iec61850
 import time
 
-if __name__="__main__":
+if __name__=="__main__":
   hostname = "192.168.253.226";
   tcpPort = 102
   if len(sys.argv)>1:
